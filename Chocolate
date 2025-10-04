@@ -1,0 +1,12 @@
+public class Chocolate{
+    public static int CountChocolate(int money, int price, int wrap){
+        int chocolate = money / price;
+        int wrap_checolate = chocolate;
+        while(wrap_checolate >= wrap){
+            int chocolate2 = wrap_checolate -= wrap;
+            chocolate += chocolate2;
+            wrap_checolate = wrap_checolate % wrap + chocolate2;
+        }
+        return chocolate;
+    }
+}
