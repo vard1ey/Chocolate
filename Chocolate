@@ -1,0 +1,25 @@
+import  java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Введите кол-во имеющихся денег: ");
+        int money = scan.nextInt();
+        System.out.println("Введите цену 1 шоколадки: ");
+        int price = scan.nextInt();
+        System.out.println("Введите кол-во обёрток для обмена на ещё одну шоколадку: ");
+        int wrap = scan.nextInt();
+        int res = CountChocolate(money,price,wrap);
+        System.out.print("Ответ: " + res);
+    }
+    public static int CountChocolate(int money, int price, int wrap){
+        int chocolate = money / price;
+        int wrap_checolate = chocolate;
+        while(wrap_checolate >= wrap){
+            int chocolate2 = wrap_checolate -= wrap;
+            chocolate += chocolate2;
+            wrap_checolate = wrap_checolate % wrap + chocolate2;
+        }
+        return chocolate;
+    }
+}
